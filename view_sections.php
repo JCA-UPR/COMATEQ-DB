@@ -12,7 +12,7 @@ if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
 
-$tables = ["Estudiante", "Equipo", "Coordinador", "Universidad", "Escuela", "Administrador", "Problema"];
+$tables = ["Estudiante", "Equipo", "Participacion", "Coordinador", "Universidad", "Escuela", "Problema"];
 
 foreach ($tables as $table) {
     $sql = "SELECT * FROM $table";

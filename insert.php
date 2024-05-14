@@ -13,6 +13,7 @@ if ($conn->connect_error) {
 }
 
 $table = $_POST['table'];
+// echo $table;
 $fields = "";
 $values = "";
 
@@ -36,3 +37,5 @@ if ($conn->query($sql) === TRUE) {
 
 $conn->close();
 ?>
+
+

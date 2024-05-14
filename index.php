@@ -11,15 +11,14 @@
     
     <h2>Opciones disponibles:</h2>
     <ul>
-        <li><a href="#coordinadores">Coordinadores</a></li>
-        <li><a href="#estudiantes">Estudiantes</a></li>
-        <li><a href="#equipos">Equipos</a></li>
-        <li><a href="#administradores">Administradores</a></li>
-        <li><a href="#escuelas">Escuelas</a></li>
-        <li><a href="#universidades">Universidades</a></li>
-        <li><a href="#problemas">Problemas</a></li>
+        <li><a href="entity.php?entity=Coordinador">Coordinadores</a></li>
+        <li><a href="entity.php?entity=Estudiante">Estudiantes</a></li>
+        <li><a href="entity.php?entity=Equipos">Equipos</a></li>
+        <li><a href="entity.php?entity=Administrador">Administradores</a></li>
+        <li><a href="entity.php?entity=Escuela">Escuelas</a></li>
+        <li><a href="entity.php?entity=Universidad">Universidades</a></li>
+        <li><a href="entity.php?entity=Problema">Problemas</a></li>
     </ul>
-
-    <?php include 'view_sections.php'; ?>
+    <?php include "view_sections.php"?>
 </body>
 </html>
