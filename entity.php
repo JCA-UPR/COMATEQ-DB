@@ -1,8 +1,11 @@
 <?php
-$servername = "localhost";
-$username = "jimmyca";
-$password = "zW2v8b5L";
-$dbname = "S224DB_jimmyca";
+session_start();
+if (!isset($_SESSION['admin_id'])) {
+    header("Location: login.php");
+    exit();
+}
+
+include "credentials.php";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -30,6 +33,7 @@ $result = $conn->query($sql);
 <body>
     <!-- Show current table -->
     <h1><?php echo $entity; ?> Registrados</h1>
+    <a href="logout.php">Logout</a>
     <?php
     if ($result->num_rows > 0) {
         echo "<table><tr>";
@@ -58,7 +62,7 @@ $result = $conn->query($sql);
         <?php
         $result = $conn->query("DESCRIBE $entity");
         while ($row = $result->fetch_assoc()) {
-            if ($row['Field'] != 'id_' . strtolower($entity) && $row['Field'] != 'permiso') {
+            if ($row['Field'] != 'id_' . strtolower($entity) && $row['Field'] != 'permiso' && $row['Field'] != 'password_hash') {
                 echo $row['Field'] . ": <input type='text' name='" . $row['Field'] . "'><br>";
             }
         }
@@ -74,7 +78,7 @@ $result = $conn->query($sql);
         <?php
         $result = $conn->query("DESCRIBE $entity");
         while ($row = $result->fetch_assoc()) {
-            if ($row['Field'] != 'id_' . strtolower($entity) && $row['Field'] != 'permiso') {
+            if ($row['Field'] != 'id_' . strtolower($entity) && $row['Field'] != 'permiso' && $row['Field'] != 'password_hash') {
                 echo $row['Field'] . ": <input type='text' name='" . $row['Field'] . "'><br>";
             }
         }

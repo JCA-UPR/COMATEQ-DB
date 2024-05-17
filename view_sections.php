@@ -1,8 +1,6 @@
 <?php
-$servername = "localhost";
-$username = "jimmyca";
-$password = "zW2v8b5L";
-$dbname = "S224DB_jimmyca";
+
+include "credentials.php";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -44,7 +42,7 @@ foreach ($tables as $table) {
             <input type='hidden' name='table' value='$table'>";
     $result = $conn->query("DESCRIBE $table");
     while ($row = $result->fetch_assoc()) {
-        if ($row['Field'] != 'id_' . strtolower($table) && $row['Field'] != 'permiso') {
+        if ($row['Field'] != 'id_' . strtolower($table) && $row['Field'] != 'permiso' && $row['Field'] != 'password_hash') {
             echo $row['Field'] . ": <input type='text' name='" . $row['Field'] . "'><br>";
         }
     }
@@ -57,7 +55,7 @@ foreach ($tables as $table) {
             ID a actualizar: <input type='number' name='id'><br>";
     $result = $conn->query("DESCRIBE $table");
     while ($row = $result->fetch_assoc()) {
-        if ($row['Field'] != 'id_' . strtolower($table) && $row['Field'] != 'permiso') {
+        if ($row['Field'] != 'id_' . strtolower($table) && $row['Field'] != 'permiso' && $row['Field'] != 'password_hash') {
             echo $row['Field'] . ": <input type='text' name='" . $row['Field'] . "'><br>";
         }
     }
