@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 
 include "credentials.php";
 
@@ -85,21 +85,21 @@ $conn->close();
     <link rel="stylesheet" type="text/css" href="results.css">
 </head>
 <body>
-    <h1>Top 3 Teams from Latest Competition</h1>
+    <h1>Ganadores de últimas competencias</h1>
     <?php foreach ($teams as $team): ?>
         <div class="team-container">
             <div class="team-info">
                 <!-- Cambiar imagen a basada en lugar de equipo!!! -->
                 <img class="team-img" src="./p1.png" alt="Team Image">
-                <h2><?php echo htmlspecialchars($team['nombre']); ?> (Score: <?php echo htmlspecialchars($team['puntuacion']); ?>)</h2>
-                <h3>Participants:</h3>
+                <h2><?php echo htmlspecialchars($team['nombre']); ?> (Puntuaje: <?php echo htmlspecialchars($team['puntuacion']); ?>)</h2>
+                <h3>Participantes:</h3>
                 <ul>
                     <?php foreach ($team_participants[$team['id_equipo']] as $participant): ?>
                         <li display="block">
-                            Name: <?php echo htmlspecialchars($participant['primer_nombre']); ?>,
-                            Age: <?php echo htmlspecialchars($participant['edad']); ?>,
-                            Grade: <?php echo htmlspecialchars($participant['grado']); ?>,
-                            School: <?php echo htmlspecialchars($participant['escuela']); ?>
+                            Nombre: <?php echo htmlspecialchars($participant['primer_nombre']); ?>,
+                            Edad: <?php echo htmlspecialchars($participant['edad']); ?>,
+                            Grado: <?php echo htmlspecialchars($participant['grado']); ?>,
+                            Escuela: <?php echo htmlspecialchars($participant['escuela']); ?>
                         </li>
                     <?php endforeach; ?>
                 </ul>

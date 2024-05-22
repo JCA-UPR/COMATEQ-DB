@@ -1,9 +1,9 @@
 <?php
-session_start();
-if (!isset($_SESSION['admin_id'])) {
-    header("Location: login.php");
-    exit();
-}
+// session_start();
+// if (!isset($_SESSION['admin_id'])) {
+//     header("Location: login.php");
+//     exit();
+// }
 
 include "credentials.php";
 
@@ -33,6 +33,7 @@ $result = $conn->query($sql);
 <body>
     <!-- Show current table -->
     <h1><?php echo $entity; ?> Registrados</h1>
+    <a href="index.php">Volver a la página principal</a>
     <a href="logout.php">Logout</a>
     <?php
     if ($result->num_rows > 0) {
@@ -93,8 +94,6 @@ $result = $conn->query($sql);
         ID a eliminar: <input type='number' name='id'><br>
         <input type='submit' value='Eliminar'>
     </form>
-
-    <a href="index.php">Volver a la página principal</a>
 
 </body>
 </html>
