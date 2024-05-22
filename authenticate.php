@@ -1,10 +1,7 @@
 <?php
 session_start();
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "comateq001";
+include "credentials.php";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -25,8 +22,8 @@ $result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
     $admin = $result->fetch_assoc();
-    if (password_verify($password, $admin['password'])) {
-        $_SESSION['admin_id'] = $admin['id_administrador'];
+    if (password_verify($password, $admin['password_hash'])) {
+        $_SESSION['admin_id'] = $admin['id_admin'];
         header("Location: index.php");
     } else {
         echo "Contraseña incorrecta.";
