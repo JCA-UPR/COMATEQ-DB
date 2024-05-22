@@ -98,6 +98,7 @@ CREATE TABLE `Administradores` (
   `universidad` INT,
   `posicion_en_organizacion` VARCHAR(255),
   `permiso` INT COMMENT '0 = nada, 1 = admin, 2 = coordinador, 3 = estudiante, 4 = todo el mundo',
+  `password_hash` VARCHAR(255) COMMENT `No es la contraseña, sino el hash de ella.`
   FOREIGN KEY (`universidad`) REFERENCES `Universidad`(`id_universidad`),
   FOREIGN KEY (`permiso`) REFERENCES `Permiso`(`id_permiso`)
 );
